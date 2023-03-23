@@ -15,7 +15,7 @@ jobs:
       - uses: Stockopedia/action-get-changed-files@v1
         id: get_changed
         with:
-          github-token: ${{ secrets.PAT }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 #           ignore: "**/*.js" # glob
           foldersOnly: true # to only include folders in the output
           format: json # either json, csv or newline
