@@ -3,6 +3,8 @@ name: Changed Files
 on:
 #   workflow_dispatch:
   push:
+    path:
+      - 'src/cloud_functions/**'
 
 jobs:
   build:
