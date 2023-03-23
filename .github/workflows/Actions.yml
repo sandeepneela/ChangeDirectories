@@ -1,11 +1,8 @@
 name: Changed Files
 
 on:
-  workflow_dispatch:
-#   push:
-#     paths:
-#       - 'source/**'
-#       - '.github/workflows/CloudMessaging.yml'
+#   workflow_dispatch:
+  push:
 
 jobs:
   build:
