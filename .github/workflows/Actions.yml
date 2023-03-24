@@ -11,16 +11,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Check which services were modified
-        uses: dorny/paths-filter@v2
-        id: filter
-        with:
-          list-files: shell
-          filters: |
-            services:
-              - 'src/cloud_functions/**'
-      - name: Deploy changed services
-        if: ${{ steps.filter.outputs.services == 'true' }}
-        run: |
-          echo "All changes:"
-          for i in ${{ steps.filter.outputs.services_files }}; do echo $i | awk ; done
+      - name: Directories
+        run: git diff --name-only | cut -d/ -f1 | uniq
+#       - name: Check which services were modified
+#         uses: dorny/paths-filter@v2
+#         id: filter
+#         with:
+#           list-files: shell
+#           filters: |
+#             services:
+#               - 'src/cloud_functions/**'
+#       - name: Deploy changed services
+#         if: ${{ steps.filter.outputs.services == 'true' }}
+#         run: |
+#           echo "All changes:"
+#           for i in ${{ steps.filter.outputs.services_files }}; do echo $i | awk ; done
