@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'src/cloud_functions/**'
+      - '.github/workflows/**'
 
 jobs:
   deploy:
@@ -12,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Directories
-        run: git diff --name-only | cut -d/ -f1 | uniq
+        run: git diff
 #       - name: Check which services were modified
 #         uses: dorny/paths-filter@v2
 #         id: filter
